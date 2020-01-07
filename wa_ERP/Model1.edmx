@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="catAreas">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="EstatusRegistroID" Type="int" />
+          <Property Name="FechaRegistro" Type="date" />
+        </EntityType>
+        <EntityType Name="catAreasPerfiles">
+          <Key>
+            <PropertyRef Name="AreasPerfilesID" />
+          </Key>
+          <Property Name="AreasPerfilesID" Type="int" Nullable="false" />
+          <Property Name="PerfilID" Type="int" />
+          <Property Name="AreaID" Type="int" />
+        </EntityType>
+        <EntityType Name="catBusquedaUsuario">
+          <Key>
+            <PropertyRef Name="BusquedaUsuarioID" />
+          </Key>
+          <Property Name="BusquedaUsuarioID" Type="int" Nullable="false" />
+          <Property Name="BusquedaUsuario" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="catGeneros">
+          <Key>
+            <PropertyRef Name="GeneroID" />
+          </Key>
+          <Property Name="GeneroID" Type="int" Nullable="false" />
+          <Property Name="Genero" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="catPerfiles">
+          <Key>
+            <PropertyRef Name="PerfilID" />
+          </Key>
+          <Property Name="PerfilID" Type="int" Nullable="false" />
+          <Property Name="Perfil" Type="varchar" MaxLength="50" />
+          <Property Name="EstatusRegistroID" Type="int" />
+          <Property Name="FechaRegistro" Type="date" />
+        </EntityType>
+        <EntityType Name="Corporativo">
+          <Key>
+            <PropertyRef Name="CorporativoID" />
+          </Key>
+          <Property Name="CorporativoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="CorreoElecronico" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="CalleNumero" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoPostal" Type="varchar" MaxLength="50" />
+          <Property Name="ColoniaID" Type="varchar" MaxLength="50" />
+          <Property Name="EstatusRegistroID" Type="int" />
+          <Property Name="FechaRegistro" Type="date" />
+          <Property Name="EmpresaID" Type="int" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="UsuarioID" />
+          </Key>
+          <Property Name="UsuarioID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TipoUsuarioID" Type="int" />
+          <Property Name="PerfilID" Type="int" />
+          <Property Name="CodigoUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varbinary" MaxLength="50" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" />
+          <Property Name="ApellidoPaterno" Type="varchar" MaxLength="50" />
+          <Property Name="ApellidoMaterno" Type="varchar" MaxLength="50" />
+          <Property Name="CorreoPersonal" Type="varchar" MaxLength="50" />
+          <Property Name="CorreoTrabajo" Type="varchar" MaxLength="50" />
+          <Property Name="Celular" Type="varchar" MaxLength="50" />
+          <Property Name="ubicacionID" Type="int" />
+          <Property Name="EstatusRegistroID" Type="int" />
+          <Property Name="FechaRegistro" Type="date" />
+          <Property Name="CorporativoID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="catAreas" EntityType="Self.catAreas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="catAreasPerfiles" EntityType="Self.catAreasPerfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="catBusquedaUsuario" EntityType="Self.catBusquedaUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="catGeneros" EntityType="Self.catGeneros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="catPerfiles" EntityType="Self.catPerfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Corporativo" EntityType="Self.Corporativo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="catBusquedaUsuario" EntityType="Database1Model.catBusquedaUsuario" />
+          <EntitySet Name="Corporativo" EntityType="Database1Model.Corporativo" />
+          <EntitySet Name="Usuarios" EntityType="Database1Model.Usuarios" />
+          <EntitySet Name="catAreas" EntityType="Database1Model.catAreas" />
+          <EntitySet Name="catAreasPerfiles" EntityType="Database1Model.catAreasPerfiles" />
+          <EntitySet Name="catGeneros" EntityType="Database1Model.catGeneros" />
+          <EntitySet Name="catPerfiles" EntityType="Database1Model.catPerfiles" />
+        </EntityContainer>
+        <EntityType Name="catBusquedaUsuario">
+          <Key>
+            <PropertyRef Name="BusquedaUsuarioID" />
+          </Key>
+          <Property Name="BusquedaUsuarioID" Type="Int32" Nullable="false" />
+          <Property Name="BusquedaUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Corporativo">
+          <Key>
+            <PropertyRef Name="CorporativoID" />
+          </Key>
+          <Property Name="CorporativoID" Type="Guid" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CorreoElecronico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalleNumero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ColoniaID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstatusRegistroID" Type="Int32" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="0" />
+          <Property Name="EmpresaID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="UsuarioID" />
+          </Key>
+          <Property Name="UsuarioID" Type="Guid" Nullable="false" />
+          <Property Name="TipoUsuarioID" Type="Int32" />
+          <Property Name="PerfilID" Type="Int32" />
+          <Property Name="CodigoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CorreoPersonal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CorreoTrabajo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ubicacionID" Type="Int32" />
+          <Property Name="EstatusRegistroID" Type="Int32" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="0" />
+          <Property Name="CorporativoID" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="catAreas">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstatusRegistroID" Type="Int32" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="catAreasPerfiles">
+          <Key>
+            <PropertyRef Name="AreasPerfilesID" />
+          </Key>
+          <Property Name="AreasPerfilesID" Type="Int32" Nullable="false" />
+          <Property Name="PerfilID" Type="Int32" />
+          <Property Name="AreaID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="catGeneros">
+          <Key>
+            <PropertyRef Name="GeneroID" />
+          </Key>
+          <Property Name="GeneroID" Type="Int32" Nullable="false" />
+          <Property Name="Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="catPerfiles">
+          <Key>
+            <PropertyRef Name="PerfilID" />
+          </Key>
+          <Property Name="PerfilID" Type="Int32" Nullable="false" />
+          <Property Name="Perfil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstatusRegistroID" Type="Int32" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+          <EntitySetMapping Name="catBusquedaUsuario">
+            <EntityTypeMapping TypeName="Database1Model.catBusquedaUsuario">
+              <MappingFragment StoreEntitySet="catBusquedaUsuario">
+                <ScalarProperty Name="BusquedaUsuario" ColumnName="BusquedaUsuario" />
+                <ScalarProperty Name="BusquedaUsuarioID" ColumnName="BusquedaUsuarioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Corporativo">
+            <EntityTypeMapping TypeName="Database1Model.Corporativo">
+              <MappingFragment StoreEntitySet="Corporativo">
+                <ScalarProperty Name="EmpresaID" ColumnName="EmpresaID" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="EstatusRegistroID" ColumnName="EstatusRegistroID" />
+                <ScalarProperty Name="ColoniaID" ColumnName="ColoniaID" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="CalleNumero" ColumnName="CalleNumero" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CorreoElecronico" ColumnName="CorreoElecronico" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CorporativoID" ColumnName="CorporativoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="Database1Model.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="CorporativoID" ColumnName="CorporativoID" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="EstatusRegistroID" ColumnName="EstatusRegistroID" />
+                <ScalarProperty Name="ubicacionID" ColumnName="ubicacionID" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="CorreoTrabajo" ColumnName="CorreoTrabajo" />
+                <ScalarProperty Name="CorreoPersonal" ColumnName="CorreoPersonal" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+                <ScalarProperty Name="PerfilID" ColumnName="PerfilID" />
+                <ScalarProperty Name="TipoUsuarioID" ColumnName="TipoUsuarioID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catAreas">
+            <EntityTypeMapping TypeName="Database1Model.catAreas">
+              <MappingFragment StoreEntitySet="catAreas">
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="EstatusRegistroID" ColumnName="EstatusRegistroID" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catAreasPerfiles">
+            <EntityTypeMapping TypeName="Database1Model.catAreasPerfiles">
+              <MappingFragment StoreEntitySet="catAreasPerfiles">
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="PerfilID" ColumnName="PerfilID" />
+                <ScalarProperty Name="AreasPerfilesID" ColumnName="AreasPerfilesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catGeneros">
+            <EntityTypeMapping TypeName="Database1Model.catGeneros">
+              <MappingFragment StoreEntitySet="catGeneros">
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="GeneroID" ColumnName="GeneroID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catPerfiles">
+            <EntityTypeMapping TypeName="Database1Model.catPerfiles">
+              <MappingFragment StoreEntitySet="catPerfiles">
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="EstatusRegistroID" ColumnName="EstatusRegistroID" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="PerfilID" ColumnName="PerfilID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
