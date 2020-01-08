@@ -455,7 +455,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <asp:DropDownList CssClass="form-control input-box" ID="sAreaUsuario" runat="server" TabIndex="6" required="required" AutoPostBack="true"></asp:DropDownList>
+                                                        <asp:DropDownList CssClass="form-control input-box" ID="sAreaUsuario" runat="server" TabIndex="6" required="required" AutoPostBack="true" OnSelectedIndexChanged="sAreaUsuario_SelectedIndexChanged"></asp:DropDownList>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">

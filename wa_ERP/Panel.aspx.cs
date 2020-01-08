@@ -135,5 +135,36 @@ namespace wa_ERP
 
             sPerfilUsuario.Items.Insert(0, new ListItem("Perfil", string.Empty));
         }
+
+        protected void sAreaUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int intID = int.Parse(sAreaUsuario.SelectedValue);
+
+            using (var ctx = new Database1Entities())
+            {
+                var query = from a in ctx.catPerfiles
+                            join s in ctx.catAreasPerfiles on a.PerfilID equals s.PerfilID
+                            where s.AreaID == intID
+                            select new 
+                            {
+                                a.PerfilID,
+                                a.Perfil
+                            };
+
+                query.FirstOrDefault();
+
+
+                var dPerfiles = (from c in ctx.catPerfiles
+                                 
+                                 select c).ToList();
+
+                sPerfilUsuario.DataSource = dPerfiles;
+                sPerfilUsuario.DataTextField = "Perfil";
+                sPerfilUsuario.DataValueField = "PerfilID";
+                sPerfilUsuario.DataBind();
+
+                sPerfilUsuario.Items.Insert(0, new ListItem("Perfil", string.Empty));
+            }
+        }
     }
 }
