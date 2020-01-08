@@ -100,19 +100,29 @@ namespace wa_ERP
             sPerfilUsuario.Items.Clear();
             sGeneroUsuario.Items.Clear();
 
-            using (Database1Entities mConfiguracion = new Database1Entities())
+            using (Database1Entities mSelect = new Database1Entities())
             {
-                var dConfiguracion = (from c in mConfiguracion.catAreas
+                var dAreas = (from c in mSelect.catAreas
                                       select c).ToList();
 
-                sAreaUsuario.DataSource = dConfiguracion;
+                sAreaUsuario.DataSource = dAreas;
                 sAreaUsuario.DataTextField = "Area";
                 sAreaUsuario.DataValueField = "AreaID";
                 sAreaUsuario.DataBind();
 
                 sAreaUsuario.Items.Insert(0, new ListItem("Área", string.Empty));
 
-                var dGenero = (from c in mConfiguracion.catGeneros
+                //var dPerfiles = (from c in mSelect.catPerfiles
+                //                 select c).ToList();
+
+                //sPerfilUsuario.DataSource = dPerfiles;
+                //sPerfilUsuario.DataTextField = "Perfil";
+                //sPerfilUsuario.DataValueField = "PerfilID";
+                //sPerfilUsuario.DataBind();
+
+                //sPerfilUsuario.Items.Insert(0, new ListItem("Perfil", string.Empty));
+
+                var dGenero = (from c in mSelect.catGeneros
                                select c).ToList();
 
                 sGeneroUsuario.DataSource = dGenero;
